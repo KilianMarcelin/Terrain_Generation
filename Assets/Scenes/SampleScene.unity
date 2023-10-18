@@ -237,6 +237,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textureRenderer: {fileID: 263714492}
+  terrainColors:
+  - {r: 0, g: 0.4167453, b: 0.5377358, a: 0}
+  - {r: 0.896868, g: 1, b: 0, a: 0}
+  - {r: 0.07176928, g: 0.5283019, b: 0.16486612, a: 0}
+  terrainLevels:
+  - 0.33
+  - 0.66
+  - 1
 --- !u!114 &299499440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapWidth: 100
   mapHeight: 100
-  noiseScale: 30
+  noiseScale: 17.73
   autoUpdate: 1
 --- !u!4 &299499441
 Transform:
