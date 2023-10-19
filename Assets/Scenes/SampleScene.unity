@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 263714491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 210, y: 1, z: 204}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -238,12 +238,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textureRenderer: {fileID: 263714492}
   terrainColors:
-  - {r: 0, g: 0.4167453, b: 0.5377358, a: 0}
-  - {r: 0.896868, g: 1, b: 0, a: 0}
-  - {r: 0.07176928, g: 0.5283019, b: 0.16486612, a: 0}
+  - {r: 0.116625115, g: 0.43541074, b: 0.5283019, a: 1}
+  - {r: 0.06578848, g: 0.6572222, b: 0.8301887, a: 0}
+  - {r: 0.8490566, g: 0.83084434, b: 0.33161265, a: 0}
+  - {r: 0.38163605, g: 0.5943396, b: 0.2657707, a: 0}
+  - {r: 0.41509432, g: 0.30610988, b: 0.24827339, a: 0}
+  - {r: 0.3301887, g: 0.22146837, b: 0.16322534, a: 0}
+  - {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0}
   terrainLevels:
-  - 0.33
-  - 0.66
+  - 0.3
+  - 0.4
+  - 0.44
+  - 0.65
+  - 0.8
+  - 0.9
   - 1
 --- !u!114 &299499440
 MonoBehaviour:
@@ -257,9 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216e0291627eea649aefd7dc0a28b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 100
-  mapHeight: 100
-  noiseScale: 17.73
+  mapWidth: 210
+  mapHeight: 204
+  noiseScale: 189.29
+  octaves: 4
+  persistance: 0.5
+  lacunarity: 3
   autoUpdate: 1
 --- !u!4 &299499441
 Transform:

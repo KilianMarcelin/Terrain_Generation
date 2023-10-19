@@ -11,8 +11,8 @@ public class MapDisplay : MonoBehaviour
     public float[] terrainLevels;
     public void DrawNoiseMap(float[,] noiseMap)
     {
-        int width = noiseMap.GetLength(0);
-        int height = noiseMap.GetLength(1);
+        int height = noiseMap.GetLength(0);
+        int width = noiseMap.GetLength(1);
         Texture2D texture = new Texture2D(width,height);
         
         // More efficient than set color by color
