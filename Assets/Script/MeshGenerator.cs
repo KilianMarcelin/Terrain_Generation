@@ -9,7 +9,7 @@ public class MeshGenerator : MonoBehaviour
     public int vertexCountX = 10;
     public int vertexCountZ = 10;
     public float heightScale = 1.0f;
-
+    
     private Mesh mesh;
     
     public Material material;
@@ -24,9 +24,9 @@ public class MeshGenerator : MonoBehaviour
         Vector2[] uvs = new Vector2[vertexCountX * vertexCountZ];
 
         // Remplissez le tableau des vertices et des hauteurs ici
-        for (int z = 0; z < vertexCountZ; z++)
+        for (int x = 0; x < vertexCountX; x++)
         {
-            for (int x = 0; x < vertexCountX; x++)
+            for (int z = 0; z < vertexCountZ; z++)
             {
                 float xPos = x / (float)(vertexCountX - 1);
                 float zPos = z / (float)(vertexCountZ - 1);
@@ -37,9 +37,9 @@ public class MeshGenerator : MonoBehaviour
         }
 
         int triangleIndex = 0;
-        for (int z = 0; z < vertexCountZ - 1; z++)
+        for (int x = 0; x < vertexCountX - 1; x++)
         {
-            for (int x = 0; x < vertexCountX - 1; x++)
+            for (int z = 0; z < vertexCountZ - 1; z++)
             {
                 int a = z * vertexCountX + x;
                 int b = a + 1;

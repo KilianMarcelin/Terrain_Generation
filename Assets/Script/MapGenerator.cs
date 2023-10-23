@@ -17,9 +17,16 @@ public class MapGenerator : MonoBehaviour
 
         MapDisplay mapDisplay = FindObjectOfType<MapDisplay>();
         MeshGenerator meshGenerator = FindObjectOfType<MeshGenerator>();
+        WaterGenerator waterGenerator = FindObjectOfType<WaterGenerator>();
         mapDisplay.DrawNoiseMap(noiseMap); 
         meshGenerator.vertexCountX = mapWidth;
         meshGenerator.vertexCountZ = mapHeight;
+        waterGenerator.vertexCountX = mapWidth;
+        waterGenerator.vertexCountZ = mapHeight;
         meshGenerator.GenerateMesh(noiseMap);
+        waterGenerator.GenerateMesh();
+        waterGenerator.transform.localPosition = new Vector3(waterGenerator.transform.localPosition.x,
+            (meshGenerator.heightScale * mapDisplay.terrainLevels[1]),
+            waterGenerator.transform.localPosition.z);
     }
 }
