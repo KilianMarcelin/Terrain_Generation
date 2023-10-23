@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class WaterGenerator : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class WaterGenerator : MonoBehaviour
     public void GenerateMesh()
     {
         mesh = new Mesh();
+        mesh.indexFormat = IndexFormat.UInt32;   
         GetComponent<MeshFilter>().mesh = mesh;
 
         Vector3[] vertices = new Vector3[vertexCountX * vertexCountZ];

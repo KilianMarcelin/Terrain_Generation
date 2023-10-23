@@ -11,6 +11,12 @@ public class MapGenerator : MonoBehaviour
     public float persistance;
     public float lacunarity;
     public bool autoUpdate;
+
+    void Start()
+    {
+        GenerateMap();
+    }
+
     public void GenerateMap()
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, noiseScale, octaves,persistance,lacunarity);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MeshGenerator : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class MeshGenerator : MonoBehaviour
     public void GenerateMesh(float[,] heights)
     {
         mesh = new Mesh();
+        mesh.indexFormat = IndexFormat.UInt32;   
         GetComponent<MeshFilter>().mesh = mesh;
 
         Vector3[] vertices = new Vector3[vertexCountX * vertexCountZ];
         int[] triangles = new int[(vertexCountX - 1) * (vertexCountZ - 1) * 6];
         Vector2[] uvs = new Vector2[vertexCountX * vertexCountZ];
 
-        // Remplissez le tableau des vertices et des hauteurs ici
         for (int x = 0; x < vertexCountX; x++)
         {
             for (int z = 0; z < vertexCountZ; z++)
