@@ -61,7 +61,7 @@ public class WaterGenerator : MonoBehaviour
         mesh.uv = uvs;
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        transform.localScale = new Vector3(vertexCountX, 1, vertexCountZ);
+        transform.localScale = new Vector3(vertexCountX/2, 1, vertexCountZ/2);
 
         // Vous pouvez maintenant utiliser le tableau heights pour accéder aux valeurs de hauteur associées à chaque vertex.
         

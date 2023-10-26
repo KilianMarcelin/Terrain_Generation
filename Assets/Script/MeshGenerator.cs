@@ -10,6 +10,9 @@ public class MeshGenerator : MonoBehaviour
     public int vertexCountX = 10;
     public int vertexCountZ = 10;
     public float heightScale = 1.0f;
+    public bool island = true;
+    public bool terrace = false;
+    public int terraces = 5;
     
     private Mesh mesh;
     
@@ -32,7 +35,20 @@ public class MeshGenerator : MonoBehaviour
                 float xPos = x / (float)(vertexCountX - 1);
                 float zPos = z / (float)(vertexCountZ - 1);
                 int index = z * vertexCountX + x;
-                vertices[index] = new Vector3(xPos, heights[z,x]*heightScale, zPos);
+                float elevation = heights[z, x];
+                if (island)
+                {
+                    float nx = 2 * (x / (float)vertexCountX) - 1;
+                    float nz = 2 * z / (float)vertexCountZ - 1;
+                    double eucDist = Math.Min(1, (nx*nx + nz*nz) / Math.Sqrt(2));
+                    elevation = (float)(elevation + (1 - eucDist)) / 2;
+                }
+
+                if (terrace)
+                {
+                    elevation = (float)Math.Round(elevation * terraces) / terraces;
+                }
+                vertices[index] = new Vector3(xPos, elevation*heightScale, zPos);
                 uvs[index] = new Vector2(xPos, zPos);
             }
         }
@@ -62,7 +78,7 @@ public class MeshGenerator : MonoBehaviour
         mesh.uv = uvs;
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        transform.localScale = new Vector3(vertexCountX, 1, vertexCountZ);
+        transform.localScale = new Vector3(vertexCountX/2, 1, vertexCountZ/2);
 
         // Vous pouvez maintenant utiliser le tableau heights pour accéder aux valeurs de hauteur associées à chaque vertex.
         
